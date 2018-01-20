@@ -53,17 +53,16 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
     private void getLocationPermission(){
         Log.d(TAG, "getLocationPermission: Checking location permissions");
         String[] permissions = {FINE_LOCATION, COARSE_LOCATION};
-        if (ContextCompat.checkSelfPermission(
-                this.getApplicationContext(), FINE_LOCATION) == PackageManager.PERMISSION_GRANTED){
-            if (ContextCompat.checkSelfPermission(this.getApplicationContext(),
-                    COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED){
+        if ( (ContextCompat.checkSelfPermission(
+                this.getApplicationContext(), FINE_LOCATION) == PackageManager.PERMISSION_GRANTED)
+            && (ContextCompat.checkSelfPermission(this.getApplicationContext(),
+                    COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED)){
                 mLocationPermissionGranted = true;
             } else {
                 ActivityCompat.requestPermissions(this,
                         permissions,
                         LOCATION_PERMISSION_REQUEST_CODE);
             }
-        }
     }
 
     @Override
