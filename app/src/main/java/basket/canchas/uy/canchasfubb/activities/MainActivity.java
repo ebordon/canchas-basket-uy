@@ -12,15 +12,8 @@ import android.widget.Toast;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GoogleApiAvailability;
 
-import java.util.List;
-
-import javax.security.auth.login.LoginException;
-
 import basket.canchas.uy.canchasfubb.R;
 import basket.canchas.uy.canchasfubb.data.AppRepository;
-
-import basket.canchas.uy.canchasfubb.data.Place;
-import basket.canchas.uy.canchasfubb.presenters.MainPresenter;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -29,16 +22,10 @@ public class MainActivity extends AppCompatActivity {
     private static final int ERROR_DIALOG_REQUEST = 9001;
     AppRepository appRepository;
 
-    private MainPresenter presenter;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        presenter = new MainPresenter(this);
-
-        presenter.setup();
 
         if (isServicesOk()){
             init();

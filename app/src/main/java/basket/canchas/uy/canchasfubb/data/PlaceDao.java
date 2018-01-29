@@ -27,7 +27,7 @@ public interface PlaceDao {
     Place findByAddress(String address);
 
     @Insert
-    void insertAll(Place... users);
+    void insertAll(Place... places);
 
     @Delete
     void delete(Place place);

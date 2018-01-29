@@ -4,6 +4,8 @@ import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.Index;
 import android.arch.persistence.room.PrimaryKey;
 
+import com.google.android.gms.maps.model.LatLng;
+
 /**
  * Created by esteban on 1/22/2018.
  */
@@ -15,13 +17,17 @@ public class Place {
 
     private String name;
     private String address;
+    private Double latitude;
+    private Double longitude;
 
     private String markerName;
 
-    public Place(String name, String address, String markerName) {
+    public Place(String name, String address, Double latitude, Double longitude, String markerName) {
         this.name = name;
         this.address = address;
         this.markerName = markerName;
+        this.latitude = latitude;
+        this.longitude = longitude;
     }
     public void setId(int id) {
         this.id = id;
@@ -39,6 +45,14 @@ public class Place {
         this.markerName = markerName;
     }
 
+    public void setLongitude(Double longitude) {
+        this.longitude = longitude;
+    }
+
+    public void setLatitude(Double latitude) {
+        this.latitude = latitude;
+    }
+
     public int getId() {
         return id;
     }
@@ -53,5 +67,13 @@ public class Place {
 
     public String getMarkerName() {
         return markerName;
+    }
+
+    public Double getLatitude() {
+        return latitude;
+    }
+
+    public Double getLongitude() {
+        return longitude;
     }
 }

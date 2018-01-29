@@ -7,6 +7,9 @@ import android.arch.persistence.room.Room;
 import android.arch.persistence.room.RoomDatabase;
 import android.content.ContentValues;
 import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.drawable.Drawable;
 import android.location.Address;
 import android.location.Geocoder;
 import android.location.Location;
@@ -35,6 +38,7 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.LatLngBounds;
 import com.google.android.gms.maps.model.MarkerOptions;
@@ -46,9 +50,11 @@ import com.google.android.gms.tasks.Task;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 import basket.canchas.uy.canchasfubb.adapters.PlaceAutocompleteAdapter;
 import basket.canchas.uy.canchasfubb.R;
+import basket.canchas.uy.canchasfubb.data.AppRepository;
 
 /**
  * Created by esteban on 1/20/2018.
@@ -74,6 +80,11 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
     private PlaceAutocompleteAdapter mPlaceAutocompleteAdapter;
     protected GeoDataClient mGeoDataClient;
 
+    private List<basket.canchas.uy.canchasfubb.data.Place> mPlaces;
+
+    //database
+    AppRepository appRepository;
+
     //widgets
     private AutoCompleteTextView mSearchText;
     private ImageView mGps;
@@ -86,6 +97,7 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
         mSearchText = (AutoCompleteTextView) findViewById(R.id.input_search);
         mGps = (ImageView) findViewById(R.id.ic_gps);
 
+        appRepository = AppRepository.getInstance(this);
         mFusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
         getLocationPermission();
         init();
@@ -107,6 +119,11 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
             }
             mMap.setMyLocationEnabled(true);
             mMap.getUiSettings().setMyLocationButtonEnabled(false);
+            for (basket.canchas.uy.canchasfubb.data.Place p : mPlaces){
+                Log.d(TAG, "run: " + p.getName() + " - " + p.getAddress() + " - " + p.getLatitude());
+                addMarker(p);
+            }
+
         }
     }
 
@@ -118,7 +135,8 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
     }
 
     private void init(){
-        Log.d(TAG, "init: initializing search bar");
+        Log.d(TAG, "init: initializing MapActivity stuff");
+        loadPlaces();
 
         // Construct a GeoDataClient for the Google Places API for Android.
         mGeoDataClient = Places.getGeoDataClient(this, null);
@@ -136,6 +154,16 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
             }
         });
         hideSoftKeyboard();
+    }
+
+    void loadPlaces(){
+        new Thread(new Runnable(){
+            @Override
+            public void run() {
+                mPlaces = appRepository.getAppDatabase().placeDao().getAll();
+                Log.d(TAG, "run: places size " + String.valueOf(mPlaces.size()) );
+            }
+        }).start();
     }
 
     private void geoLocate(){
@@ -159,8 +187,24 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
         }
     }
 
+    private void addMarker(basket.canchas.uy.canchasfubb.data.Place place){
+        Log.d(TAG, "addMarker: Adding Marker for place: " + place.getName());
+        //Bitmap bm = BitmapFactory.decodeResource(getResources(),R.drawable.ic_marker_olimpia);
+        //Resources resources = context.getResources();
+        final int resourceId = getResources().getIdentifier(place.getMarkerName(), "drawable",
+                getPackageName());
+        Bitmap bm = BitmapFactory.decodeResource(getResources(), resourceId);
+        MarkerOptions options = new MarkerOptions()
+                .position(new LatLng(place.getLatitude(), place.getLongitude()))
+                .title(place.getName())
+                .snippet(place.getAddress())
+                .icon(BitmapDescriptorFactory.fromBitmap(bm));
+        mMap.addMarker(options);
+    }
+
     private void addMarker(LatLng latLng, String title){
         Log.d(TAG, "addMarker: adding marker to " + title);
+        Log.d(TAG, "addMarker: latLng: " + latLng.latitude + " " + latLng.longitude);
         MarkerOptions options = new MarkerOptions()
                 .position(latLng)
                 .title(title);

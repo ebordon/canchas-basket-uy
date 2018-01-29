@@ -1,0 +1,52 @@
+{
+  "teams" :
+  [{
+    "name": "Aguada",
+    "address": "Av. Gral. San Martín 2261, 11800 Montevideo",
+    "latitude": -34.8847236,
+    "longitude": -56.1893911,
+    "marker": "ic_marker_aguada"
+  },
+    {
+      "name":  "Atenas",
+      "address": "Cebollatí 1434, 11200 Montevideo",
+      "latitude": -34.9136608,
+      "longitude": -56.1852069,
+      "marker": "ic_marker_default"
+    },
+    {
+      "name": "Bigua",
+      "address": "Club Biguá de Villa Biarritz, José Vázquez Ledesma 2968, 11300 Montevideo",
+      "latitude": -34.9211845,
+      "longitude": -56.1556524,
+      "marker":  "ic_marker_bigua"
+    },
+    {
+      "name": "Bohemios",
+      "address": "Gabriel A. Pereira, 11300 Montevideo",
+      "latitude": -34.9066225,
+      "longitude": -56.1525078,
+      "marker": "ic_marker_default"
+    },
+    {
+      "name": "Defensor Sp",
+      "address":  "Jaime Zudáñez 2661, 11300 Montevideo",
+      "latitude": -34.9211841,
+      "longitude": -56.1622185,
+      "marker": "ic_marker_dsp"
+    },
+    {
+      "name":  "Goes",
+      "address": "Vilardebó 1931, 11800 Montevideo",
+      "latitude": -34.8787636,
+      "longitude": -56.1798142,
+      "marker": "ic_marker_default"
+    },
+    {
+      "name": "Olimpia",
+      "address": "Av Gral Eugenio Garzón 1923, 12500 Montevideo",
+      "latitude": -34.805906,
+      "longitude": -56.2251617,
+      "marker": "ic_marker_olimpia"
+    }]
+}
