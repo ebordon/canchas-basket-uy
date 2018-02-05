@@ -1,15 +1,9 @@
 package basket.canchas.uy.canchasfubb.activities;
 
 import android.Manifest;
-import android.arch.persistence.db.SupportSQLiteDatabase;
-import android.arch.persistence.room.OnConflictStrategy;
-import android.arch.persistence.room.Room;
-import android.arch.persistence.room.RoomDatabase;
-import android.content.ContentValues;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.graphics.drawable.Drawable;
 import android.location.Address;
 import android.location.Geocoder;
 import android.location.Location;
@@ -50,10 +44,9 @@ import com.google.android.gms.tasks.Task;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
 
-import basket.canchas.uy.canchasfubb.adapters.PlaceAutocompleteAdapter;
 import basket.canchas.uy.canchasfubb.R;
+import basket.canchas.uy.canchasfubb.adapters.PlaceAutocompleteAdapter;
 import basket.canchas.uy.canchasfubb.data.AppRepository;
 
 /**
@@ -67,7 +60,7 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
     private static final String FINE_LOCATION = Manifest.permission.ACCESS_FINE_LOCATION;
     private static final String COARSE_LOCATION = Manifest.permission.ACCESS_COARSE_LOCATION;
     private static final int LOCATION_PERMISSION_REQUEST_CODE = 1234;
-    private static final float DEFAULT_ZOOM = 15f;
+    private static final float DEFAULT_ZOOM = 14f;
     //TODO: Modify bounds to fit only Uruguay
     private static final LatLngBounds LAT_LNG_BOUNDS = new LatLngBounds(
             new LatLng(-40,-178),
@@ -94,7 +87,7 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_map);
 
-        mSearchText = (AutoCompleteTextView) findViewById(R.id.input_search);
+//        mSearchText = (AutoCompleteTextView) findViewById(R.id.input_search);
         mGps = (ImageView) findViewById(R.id.ic_gps);
 
         appRepository = AppRepository.getInstance(this);
@@ -105,7 +98,6 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
 
     @Override
     public void onMapReady(GoogleMap googleMap) {
-        Toast.makeText(this, "Map is ready", Toast.LENGTH_LONG).show();
         Log.d(TAG, "onMapReady: Map is ready");
         mMap = googleMap;
 
@@ -144,8 +136,8 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
         mPlaceAutocompleteAdapter = new PlaceAutocompleteAdapter(this, mGeoDataClient,
                 LAT_LNG_BOUNDS, null);
 
-        mSearchText.setAdapter(mPlaceAutocompleteAdapter);
-        mSearchText.setOnItemClickListener(mAutocompleteClickListener);
+//        mSearchText.setAdapter(mPlaceAutocompleteAdapter);
+//        mSearchText.setOnItemClickListener(mAutocompleteClickListener);
 
         mGps.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -180,7 +172,6 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
         if (addressList.size() > 0){
             Address address = addressList.get(0);
             Log.d(TAG, "geoLocate: Found location " + address.toString());
-            Toast.makeText(this, address.toString(), Toast.LENGTH_SHORT).show();
             LatLng position = new LatLng(address.getLatitude(),address.getLongitude());
             addMarker(position, address.getAddressLine(0));
             moveCamera(position, DEFAULT_ZOOM);
@@ -309,8 +300,6 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
             Task<PlaceBufferResponse> placeResult = mGeoDataClient.getPlaceById(placeId);
             placeResult.addOnCompleteListener(mUpdatePlaceDetailsCallback);
 
-            Toast.makeText(getApplicationContext(), "Clicked: " + primaryText,
-                    Toast.LENGTH_SHORT).show();
             Log.i(TAG, "Called getPlaceById to get Place details for " + placeId);
         }
     };

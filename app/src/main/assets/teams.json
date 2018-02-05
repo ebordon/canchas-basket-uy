@@ -106,10 +106,81 @@
       "marker": "ic_marker_default"
     },
     {
+      "name": "Nacional",
+      "address": "Comandante Braga 2677, 11600 Montevideo",
+      "latitude": -34.8906417,
+      "longitude": -56.1316508,
+      "marker": "ic_marker_default"
+    },
+    {
       "name": "Olimpia",
       "address": "Av Gral Eugenio Garzón 1923, 12500 Montevideo",
       "latitude": -34.805906,
       "longitude": -56.2251617,
       "marker": "ic_marker_olimpia"
-    }]
+    },
+    {
+      "name": "Sayago",
+      "address": "28 de Febrero, 12900 Montevideo",
+      "latitude": -34.8315183,
+      "longitude": -56.21997,
+      "marker": "ic_marker_default"
+    },
+    {
+      "name": "Stockolmo",
+      "address": "Camino Castro 404, 11900 Montevideo",
+      "latitude": -34.8538359,
+      "longitude": -56.2111348,
+      "marker": "ic_marker_default"
+    },
+    {
+      "name": "Tabaré",
+      "address": "Av. Dr. Américo Ricaldoni 2770, 11600 Montevideo",
+      "latitude": -34.8991472,
+      "longitude": -56.1582203,
+      "marker": "ic_marker_default"
+    },
+    {
+      "name": "Trouville",
+      "address": "Alejandro Chucarro 1031, 11300 Montevideo",
+      "latitude": -34.9126264,
+      "longitude": -56.1517641,
+      "marker": "ic_marker_default"
+    },
+    {
+      "name": "Union Atlética",
+      "address": "Velsen 4509, 11400 Montevideo",
+      "latitude": -34.89447,
+      "longitude": -56.115317,
+      "marker": "ic_marker_default"
+    },
+    {
+      "name": "Urunday Universitario",
+      "address": "Av Joaquín Suárez 2967, 11800 Montevideo",
+      "latitude": -34.8731422,
+      "longitude": -56.1988231,
+      "marker": "ic_marker_default"
+    },
+    {
+      "name": "25 de Agosto",
+      "address": "Dr José Luis Bado 3186, 11600 Montevideo",
+      "latitude": -34.9015137,
+      "longitude": -56.1488972,
+      "marker": "ic_marker_default"
+    },
+    {
+      "name": "Verdirrojo",
+      "address": "1617, Calle Prusia, Montevideo",
+      "latitude": -34.8864681,
+      "longitude": -56.2494267,
+      "marker": "ic_marker_default"
+    },
+    {
+      "name": "Welcome",
+      "address": "Dr Emilio Frugoni 934, 11200 Montevideo",
+      "latitude": -34.912512,
+      "longitude": -56.1768147,
+      "marker": "ic_marker_default"
+    }
+  ]
 }
