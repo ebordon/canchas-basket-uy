@@ -67,6 +67,7 @@ public class AppRepository {
 
     private void insertPlaces(SupportSQLiteDatabase db){
         try {
+            //TODO: Get the data from a service that invoke a web api
             JSONArray teams = mData.getJSONArray("teams");
             for (int i = 0; i<teams.length();i++){
                 JSONObject obj = teams.getJSONObject(i);

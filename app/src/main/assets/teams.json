@@ -29,6 +29,34 @@
       "marker": "ic_marker_default"
     },
     {
+      "name": "Capitol",
+      "address": "Gil 1151, 11700 Montevideo",
+      "latitude": -34.8705985,
+      "longitude": -56.2002021,
+      "marker": "ic_marker_default"
+    },
+    {
+      "name": "Capurro",
+      "address": "Capurro 922, 11800 Montevideo",
+      "latitude": -34.8700221,
+      "longitude": -56.2102794,
+      "marker": "ic_marker_default"
+    },
+    {
+      "name": "Colón",
+      "address": "Av. Gral. San Martín 2842, 11800 Montevideo",
+      "latitude": -34.8682656,
+      "longitude": -56.183437,
+      "marker": "ic_marker_default"
+    },
+    {
+      "name": "Cordón",
+      "address": "Galicia 1673, 11200 Montevideo",
+      "latitude": -34.8978286,
+      "longitude": -56.1831176,
+      "marker": "ic_marker_default"
+    },
+    {
       "name": "Defensor Sp",
       "address":  "Jaime Zudáñez 2661, 11300 Montevideo",
       "latitude": -34.9211841,
@@ -40,6 +68,41 @@
       "address": "Vilardebó 1931, 11800 Montevideo",
       "latitude": -34.8787636,
       "longitude": -56.1798142,
+      "marker": "ic_marker_default"
+    },
+    {
+      "name": "Hebrayca y Macabi",
+      "address": "Camacuá 623, 11000 Montevideo",
+      "latitude": -34.9094213,
+      "longitude": -56.203490,
+      "marker": "ic_marker_default"
+    },
+    {
+      "name": "Larrañaga",
+      "address": "Dr. Francisco Simón 2318, 11600 Montevideo",
+      "latitude": -34.8848698,
+      "longitude": -56.1506585,
+      "marker": "ic_marker_default"
+    },
+    {
+      "name": "Larre Borges",
+      "address": "Villagran, 12100 Montevideo",
+      "latitude": -34.8694503,
+      "longitude": -56.1354679,
+      "marker": "ic_marker_default"
+    },
+    {
+      "name": "Malvín",
+      "address": "Avenida Enrique Legrand 5163, 11400 Montevideo",
+      "latitude": -34.8906568,
+      "longitude": -56.09882,
+      "marker": "ic_marker_default"
+    },
+    {
+      "name": "Montevideo",
+      "address": "Porongos 2203, 11800 Montevideo",
+      "latitude": -34.8906517,
+      "longitude": -56.1316508,
       "marker": "ic_marker_default"
     },
     {
